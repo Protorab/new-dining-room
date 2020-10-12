@@ -92,7 +92,7 @@ $(document).ready(function () {
     slidesToScroll: 1,
     fade: true,
     dots: true,
-     dotsClass: "reviews__slider-dots",
+    dotsClass: "reviews__slider-dots",
     nextArrow: '<div class="reviews__slider-next reviews__slider-arrow "><span> </span><span></span></div>',
     prevArrow: '<div class="reviews__slider-prev reviews__slider-arrow"><span> </span><span></span></div>',
   });
@@ -109,5 +109,38 @@ $(document).ready(function () {
     e.preventDefault();
 
   });
+  $('.burger__menu').click(function (e) {
+    $('.burger__menu').toggleClass('__active');
+    $('.m__menu').toggleClass('__show');
+    e.preventDefault();
+  });
+  $(window).scroll(function () {
+    $('.burger__menu').removeClass('__active');
+    $('.m__menu').removeClass('__show');
+  });
+  $('.show__form').click(function (e) {
+    $('.popup').hide().css("display", "flex").fadeIn();
+    $('body').addClass('__fixed');
+    e.preventDefault();
+  });
+  $('.popup__close').click(function (e) {
+    $('.popup').fadeOut();
+    $('body').removeClass('__fixed');
+    $('.popup__textarea').hide();
+    $('._thx').hide();
+    $('._def').show();
+    e.preventDefault();
 
+  });
+  $('.write__review').click(function (e) {
+    $('.popup__textarea').show();
+    e.preventDefault();
+
+  });
+
+  $('.popup__bg').click(function (e) {
+    $('.popup__close').click();
+    e.preventDefault();
+
+  });
 });
